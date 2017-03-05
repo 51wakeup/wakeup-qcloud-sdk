@@ -4,7 +4,7 @@ import static com.google.common.collect.Maps.newHashMap;
 
 import java.util.Map;
 
-import com.wakeup.qcloud.domain.SortType;
+import com.wakeup.qcloud.constant.SortType;
 import com.wakeup.qcloud.response.LiveChannelGetChannelListResponse;
 
 /**

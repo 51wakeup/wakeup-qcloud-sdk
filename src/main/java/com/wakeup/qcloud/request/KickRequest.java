@@ -14,6 +14,9 @@ import com.wakeup.qcloud.response.QCloudIMResponse;
 public class KickRequest extends AbstractQCloudIMRequest<QCloudIMResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
+	/**
+	 * 	必填	用户名
+	 */
 	private String identifier;
 		   
 	@Override

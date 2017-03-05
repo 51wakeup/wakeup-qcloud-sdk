@@ -8,11 +8,17 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @since 2017年2月21日
  * @author kalman03
  */
-public class UserTagDO extends BaseDO {
+public class  UserTagDO extends BaseDO {
 
 	private static final long serialVersionUID = -8597015380307984144L;
+	/**
+	 * 必填	目标用户帐号。
+	 */
 	@JSONField(name = "To_Account")
 	private String toAccount;
+	/**
+	 * 必填	标签集合。
+	 */
 	@JSONField(name = "Tags")
 	private List<String> tags;
 

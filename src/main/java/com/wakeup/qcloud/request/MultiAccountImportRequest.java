@@ -15,6 +15,9 @@ import com.wakeup.qcloud.response.MultiAccountImportResponse;
 public class MultiAccountImportRequest extends AbstractQCloudIMRequest<MultiAccountImportResponse> {
 
 	private static final long serialVersionUID = 6979473998009923195L;
+	/**
+	 * 用户名，单个用户名长度不超过 32 字节，单次最多导入100个用户名
+	 */
 	private List<String> accounts;
 	
 	@Override

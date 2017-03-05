@@ -13,7 +13,7 @@ import com.wakeup.qcloud.response.IMBatchSendMsgResponse;
 import com.wakeup.qcloud.utils.RandomUtil;
 
 /**
- * 单发单聊消息
+ * 批量发单聊消息
  * 
  * @since 2017年2月20日
  * @author kalman03

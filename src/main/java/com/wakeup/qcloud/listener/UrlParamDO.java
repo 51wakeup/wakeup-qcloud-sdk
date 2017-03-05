@@ -1,8 +1,8 @@
 package com.wakeup.qcloud.listener;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.wakeup.qcloud.constant.OptPlatform;
 import com.wakeup.qcloud.domain.BaseDO;
-import com.wakeup.qcloud.domain.OptPlatform;
 
 /**
  * @since 2017年2月24日

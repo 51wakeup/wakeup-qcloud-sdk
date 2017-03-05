@@ -2,6 +2,8 @@ package com.wakeup.qcloud.domain;
 
 import java.util.Date;
 
+import com.wakeup.qcloud.constant.StreamDataType;
+
 /**
  * @since 2017年3月3日
  * @author kalman03

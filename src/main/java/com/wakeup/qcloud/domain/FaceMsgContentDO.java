@@ -1,6 +1,7 @@
 package com.wakeup.qcloud.domain;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.wakeup.qcloud.constant.IMMsgType;
 
 /**
  * 表情消息元素 当接收方为iOS系统且应用处在后台时，中文版离线推送文本为“[表情]”，英文版为“[Face]”。

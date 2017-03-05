@@ -10,7 +10,7 @@ import com.wakeup.qcloud.response.QCloudIMResponse;
 
 /**
  * 管理员给用户添加标签。注意每次最多只能给500个用户添加标签。目前公测阶段，暂无限制。但不排除以后会限制应用标签总数、单用户标签数。
- * 
+ * https://www.qcloud.com/document/product/269/4128
  * @since 2017年2月20日
  * @author kalman03
  */

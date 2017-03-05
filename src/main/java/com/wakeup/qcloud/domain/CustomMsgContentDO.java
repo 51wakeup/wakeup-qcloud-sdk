@@ -1,6 +1,7 @@
 package com.wakeup.qcloud.domain;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.wakeup.qcloud.constant.IMMsgType;
 
 /**
  * 当接收方为iOS系统且应用处在后台时，Desc作为推送文本， Ext字段作为APNS请求包Payloads中的ext键值下发，

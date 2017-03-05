@@ -15,13 +15,13 @@ public class IMGetAttrNameResponse extends QCloudIMResponse {
 	 * 包含多个键对。每对键值对，表示第几个属性对应的名称。比如"0":"xxx"表示第0号属性的名称是xxx。
 	 */
 	@JSONField(name = "AttrNames")
-	private Map<Long, String> attrNames;
+	private Map<String, String> attrNames;
 
-	public Map<Long, String> getAttrNames() {
+	public Map<String, String> getAttrNames() {
 		return attrNames;
 	}
 
-	public void setAttrNames(Map<Long, String> attrNames) {
+	public void setAttrNames(Map<String, String> attrNames) {
 		this.attrNames = attrNames;
 	}
 

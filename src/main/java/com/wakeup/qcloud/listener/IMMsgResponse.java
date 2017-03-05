@@ -1,7 +1,7 @@
 package com.wakeup.qcloud.listener;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.wakeup.qcloud.domain.ActionStatus;
+import com.wakeup.qcloud.constant.ActionStatus;
 import com.wakeup.qcloud.domain.BaseDO;
 
 /**

@@ -1,6 +1,7 @@
 package com.wakeup.qcloud.domain;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.wakeup.qcloud.constant.IMMsgType;
 
 /**
  * 文本消息元素

@@ -4,7 +4,7 @@ import static com.google.common.collect.Maps.newHashMap;
 
 import java.util.Map;
 
-import com.wakeup.qcloud.domain.GroupType;
+import com.wakeup.qcloud.constant.GroupType;
 import com.wakeup.qcloud.response.GetAppidGroupListResponse;
 
 /**
@@ -20,7 +20,7 @@ public class GetAppidGroupListRequest extends AbstractQCloudIMRequest<GetAppidGr
 	/**
 	 * 本次获取的群组ID数量的上限，不得超过10000。如果不填，默认为最大值10000。
 	 */
-	private long limit;
+	private long limit = 10000;
 	/**
 	 * 群太多时分页拉取标志，第一次填0，以后填上一次返回的值，返回的Next为0代表拉完了。
 	 */

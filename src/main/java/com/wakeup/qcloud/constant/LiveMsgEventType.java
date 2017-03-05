@@ -1,4 +1,4 @@
-package com.wakeup.qcloud.domain;
+package com.wakeup.qcloud.constant;
 /**
  * 目前腾讯云支持三种消息类型的通知：0 — 断流； 1 — 推流；100 — 新的录制文件已生成；200 — 新的截图文件已生成。
  * @since 2017年2月24日

@@ -4,21 +4,22 @@ import static com.google.common.collect.Maps.newHashMap;
 
 import java.util.Map;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.wakeup.qcloud.response.QCloudIMResponse;
 
 /**
  * 设置应用属性名称
- * 
+ * https://www.qcloud.com/document/product/269/4134
  * @since 2017年2月20日
  * @author kalman03
- * @param <T>
  */
 public class IMSetAttrNameRequest extends AbstractQCloudIMRequest<QCloudIMResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
-	@JSONField(name = "AttrNames")
-	private Map<Long, String> attrNames;
+	/**
+	 * key:表示第几个属性，（“0”到“9”之间）。
+	 * value:属性名最长不超过50字节。应用最多可以有10个推送属性（编号从0到9），每个属性的含义用户自定义。
+	 */
+	private Map<String, String> attrNames;
 
 	@Override
 	public String getApiName() {

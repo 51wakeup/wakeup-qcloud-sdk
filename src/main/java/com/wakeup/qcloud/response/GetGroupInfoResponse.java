@@ -9,7 +9,7 @@ import com.wakeup.qcloud.domain.GroupInfoDO;
  * @since 2017年2月24日
  * @author kalman03
  */
-public class IMGetGroupInfoResponse extends QCloudIMResponse{
+public class GetGroupInfoResponse extends QCloudIMResponse{
 
 	private static final long serialVersionUID = 1095980905089249771L;
 	

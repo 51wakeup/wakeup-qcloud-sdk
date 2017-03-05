@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-import com.wakeup.qcloud.domain.SortType;
+import com.wakeup.qcloud.constant.SortType;
 import com.wakeup.qcloud.response.LiveTapeGetFilelistResponse;
 
 /**

@@ -5,10 +5,10 @@ import static com.google.common.collect.Maps.newHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.wakeup.qcloud.constant.ApplyJoinOption;
+import com.wakeup.qcloud.constant.GroupType;
 import com.wakeup.qcloud.domain.AppDefinedDataDO;
-import com.wakeup.qcloud.domain.ApplyJoinOption;
 import com.wakeup.qcloud.domain.GroupMemberDO;
-import com.wakeup.qcloud.domain.GroupType;
 import com.wakeup.qcloud.response.CreateGroupResponse;
 
 /**

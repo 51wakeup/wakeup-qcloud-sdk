@@ -6,13 +6,13 @@ import java.util.Map;
 import java.util.Set;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.wakeup.qcloud.response.IMGetGroupInfoResponse;
+import com.wakeup.qcloud.response.GetGroupInfoResponse;
 
 /**
  * @since 2017年2月24日
  * @author kalman03
  */
-public class IMGetGroupInfoRequest extends AbstractQCloudIMRequest<IMGetGroupInfoResponse> {
+public class GetGroupInfoRequest extends AbstractQCloudIMRequest<GetGroupInfoResponse> {
 
 	private static final long serialVersionUID = 9197076482321160595L;
 	/**
@@ -35,8 +35,8 @@ public class IMGetGroupInfoRequest extends AbstractQCloudIMRequest<IMGetGroupInf
 	}
 
 	@Override
-	public Class<IMGetGroupInfoResponse> getResponseClass() {
-		return IMGetGroupInfoResponse.class;
+	public Class<GetGroupInfoResponse> getResponseClass() {
+		return GetGroupInfoResponse.class;
 	}
 
 	@Override

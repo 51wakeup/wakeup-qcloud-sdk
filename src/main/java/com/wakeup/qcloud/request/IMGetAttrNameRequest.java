@@ -8,10 +8,9 @@ import com.wakeup.qcloud.response.IMGetAttrNameResponse;
 
 /**
  * 管理员获取应用属性名称。
- * 
+ * https://www.qcloud.com/document/product/269/4135
  * @since 2017年2月20日
  * @author kalman03
- * @param <T>
  */
 public class IMGetAttrNameRequest extends AbstractQCloudIMRequest<IMGetAttrNameResponse> {
 
@@ -19,7 +18,7 @@ public class IMGetAttrNameRequest extends AbstractQCloudIMRequest<IMGetAttrNameR
 
 	@Override
 	public String getApiName() {
-		return "openim/im_set_attr_name";
+		return "openim/im_get_attr_name";
 	}
 
 	@Override

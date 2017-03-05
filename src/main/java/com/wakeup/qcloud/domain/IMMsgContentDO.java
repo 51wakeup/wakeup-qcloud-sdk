@@ -1,5 +1,7 @@
 package com.wakeup.qcloud.domain;
 
+import com.wakeup.qcloud.constant.IMMsgType;
+
 
 /**
  * @since 2017年2月20日

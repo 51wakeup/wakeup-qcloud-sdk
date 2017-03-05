@@ -14,8 +14,17 @@ import com.wakeup.qcloud.response.QCloudIMResponse;
 public class AccountImportRequest extends AbstractQCloudIMRequest<QCloudIMResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
+	/**
+	 * 必填     用户名，长度不超过 32 字节 
+	 */
 	private String identifier;
+	/**
+	 * 选填	用户昵称
+	 */
 	private String nick;
+	/**
+	 * 选填	用户头像URL。
+	 */
 	private String faceUrl;
 		   
 	@Override

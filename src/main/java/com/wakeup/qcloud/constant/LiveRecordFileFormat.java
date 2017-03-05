@@ -1,4 +1,4 @@
-package com.wakeup.qcloud.domain;
+package com.wakeup.qcloud.constant;
 /**
  * @since 2017年3月1日
  * @author kalman03

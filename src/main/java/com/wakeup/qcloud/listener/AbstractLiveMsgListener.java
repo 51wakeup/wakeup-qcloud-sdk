@@ -6,8 +6,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.wakeup.qcloud.constant.LiveMsgEventType;
 import com.wakeup.qcloud.domain.LiveMsgAvRecordCreatedDO;
-import com.wakeup.qcloud.domain.LiveMsgEventType;
 import com.wakeup.qcloud.domain.LiveMsgScreenshotCreatedDO;
 import com.wakeup.qcloud.domain.LiveMsgStreamEventDO;
 

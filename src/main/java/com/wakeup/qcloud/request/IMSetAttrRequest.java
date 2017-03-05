@@ -10,7 +10,7 @@ import com.wakeup.qcloud.response.QCloudIMResponse;
 
 /**
  * 管理员给用户设置属性。每次最多只能给500个用户设置属性。注意使用前请先定义应用的用户属性。
- * 
+ * https://www.qcloud.com/document/product/269/4126
  * @since 2017年2月20日
  * @author kalman03
  */

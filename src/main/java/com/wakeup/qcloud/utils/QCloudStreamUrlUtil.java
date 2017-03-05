@@ -5,7 +5,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import com.google.common.base.Throwables;
-import com.wakeup.qcloud.domain.StreamDataType;
+import com.wakeup.qcloud.constant.StreamDataType;
 import com.wakeup.qcloud.domain.StreamPlayUrlDO;
 import com.wakeup.qcloud.domain.StreamUrlConfig;
 

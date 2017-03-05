@@ -2,7 +2,7 @@ package com.wakeup.qcloud.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.wakeup.qcloud.QCloudResponse;
-import com.wakeup.qcloud.domain.ActionStatus;
+import com.wakeup.qcloud.constant.ActionStatus;
 
 /**
  * 腾讯云通信

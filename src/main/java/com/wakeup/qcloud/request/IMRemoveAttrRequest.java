@@ -10,7 +10,7 @@ import com.wakeup.qcloud.response.QCloudIMResponse;
 
 /**
  * 管理员给用户删除属性。注意每次最多只能给500个用户删除属性。
- * 
+ * https://www.qcloud.com/document/product/269/4127
  * @since 2017年2月20日
  * @author kalman03
  */

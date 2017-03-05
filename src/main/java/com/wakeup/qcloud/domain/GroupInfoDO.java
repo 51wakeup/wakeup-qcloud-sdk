@@ -3,6 +3,8 @@ package com.wakeup.qcloud.domain;
 import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.wakeup.qcloud.constant.ApplyJoinOption;
+import com.wakeup.qcloud.constant.GroupType;
 
 /**
  * @since 2017年2月24日
