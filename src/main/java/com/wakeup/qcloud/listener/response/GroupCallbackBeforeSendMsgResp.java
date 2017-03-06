@@ -1,10 +1,11 @@
-package com.wakeup.qcloud.listener;
+package com.wakeup.qcloud.listener.response;
 
 import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.wakeup.qcloud.domain.IMMsgBody;
 import com.wakeup.qcloud.domain.IMMsgContentDO;
+import com.wakeup.qcloud.listener.IMMsgResponse;
 
 /**
  * @since 2017年2月24日

@@ -20,6 +20,8 @@ import com.wakeup.qcloud.domain.ImageMsgContentDO;
 import com.wakeup.qcloud.domain.LocationMsgContentDO;
 import com.wakeup.qcloud.domain.SoundMsgContentDO;
 import com.wakeup.qcloud.domain.TextMsgContentDO;
+import com.wakeup.qcloud.listener.request.GroupCallbackSendMsgReq;
+import com.wakeup.qcloud.listener.response.GroupCallbackBeforeSendMsgResp;
 
 /**
  * @since 2017年2月24日
