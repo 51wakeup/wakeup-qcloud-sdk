@@ -65,6 +65,8 @@ public class LiveMsgAvRecordCreatedDO extends LiveMsgBaseDO {
 	private long startTime;
 	@JSONField(name = "end_time")
 	private long endTime;
+	@JSONField(name="duration")
+	private long duration;
 	
 	public String getVideoId() {
 		return videoId;
@@ -120,5 +122,13 @@ public class LiveMsgAvRecordCreatedDO extends LiveMsgBaseDO {
 
 	public void setFileId(String fileId) {
 		this.fileId = fileId;
+	}
+
+	public long getDuration() {
+		return duration;
+	}
+
+	public void setDuration(long duration) {
+		this.duration = duration;
 	}
 }
