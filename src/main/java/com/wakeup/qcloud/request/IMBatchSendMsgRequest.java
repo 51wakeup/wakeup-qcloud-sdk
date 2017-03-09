@@ -18,7 +18,7 @@ import com.wakeup.qcloud.utils.RandomUtil;
  * @since 2017年2月20日
  * @author kalman03
  */
-public class IMBatchSendMsgRequest<A extends IMMsgContentDO> extends
+public class IMBatchSendMsgRequest extends
 		AbstractQCloudIMRequest<IMBatchSendMsgResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
@@ -38,7 +38,7 @@ public class IMBatchSendMsgRequest<A extends IMMsgContentDO> extends
 	/**
 	 * 消息，必须
 	 */
-	private List<A> msgList;
+	private List<? extends IMMsgContentDO> msgList;
 	/**
 	 * OfflinePushInfo是专用于离线推送配置的Json对象，允许配置该条消息是否关闭推送、推送文本描述内容、推送透传字符串等等。使用OfflinePushInfo可以方便地设置离线推送信息，无需再通过TIMCustomElem封装实现。注意：如果填写了OfflinePushInfo，那么TIMCustomElem中与离线推送有关的信息配置会被忽略。目前OfflinePushInfo仅适用于APNs推送，不适用于安卓厂商推送（小米、华为推送）。
 	 */
@@ -55,12 +55,14 @@ public class IMBatchSendMsgRequest<A extends IMMsgContentDO> extends
 		map.put("SyncOtherMachine", syncOtherMachine ? 1 : 2);
 		map.put("ToAccount", toAccoutList);
 		List<Map<String, Object>> msgBody = newArrayList();
-		for (A contentDO : msgList) {
+		
+		msgList.forEach(contentDO->{
 			Map<String, Object> innerMap = newHashMap();
 			innerMap.put("MsgType", contentDO.getMsgType());
 			innerMap.put("MsgContent", contentDO);
 			msgBody.add(innerMap);
-		}
+		});
+		
 		map.put("MsgBody", msgBody);
 		map.put("MsgRandom", RandomUtil.getRandomNumber(7));
 		if (isNotBlank(fromAccount)) {
@@ -101,20 +103,20 @@ public class IMBatchSendMsgRequest<A extends IMMsgContentDO> extends
 		this.fromAccount = fromAccount;
 	}
 
-	public List<A> getMsgList() {
-		return msgList;
-	}
-
-	public void setMsgList(List<A> msgList) {
-		this.msgList = msgList;
-	}
-
 	public OfflinePushInfoDO getOfflinePushInfoDO() {
 		return offlinePushInfoDO;
 	}
 
 	public void setOfflinePushInfoDO(OfflinePushInfoDO offlinePushInfoDO) {
 		this.offlinePushInfoDO = offlinePushInfoDO;
+	}
+
+	public List<? extends IMMsgContentDO> getMsgList() {
+		return msgList;
+	}
+
+	public void setMsgList(List<? extends IMMsgContentDO> msgList) {
+		this.msgList = msgList;
 	}
 
 }

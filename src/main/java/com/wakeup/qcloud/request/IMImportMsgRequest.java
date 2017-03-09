@@ -14,7 +14,7 @@ import com.wakeup.qcloud.utils.RandomUtil;
  * @since 2017年3月4日
  * @author kalman03
  */
-public class IMImportMsgRequest<A extends IMMsgContentDO> extends AbstractQCloudIMRequest<QCloudIMResponse> {
+public class IMImportMsgRequest extends AbstractQCloudIMRequest<QCloudIMResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
 
@@ -33,7 +33,7 @@ public class IMImportMsgRequest<A extends IMMsgContentDO> extends AbstractQCloud
 	/**
 	 * 必填     消息内容，具体格式请参考消息格式描述。（注意，一条消息可包括多种消息元素，MsgBody为Array类型）
 	 */
-	private List<A> msgBody;
+	private List<? extends IMMsgContentDO> msgBody;
 	
 	
 	@Override
@@ -82,11 +82,12 @@ public class IMImportMsgRequest<A extends IMMsgContentDO> extends AbstractQCloud
 		this.toAccount = toAccount;
 	}
 
-	public List<A> getMsgBody() {
+	public List<? extends IMMsgContentDO> getMsgBody() {
 		return msgBody;
 	}
 
-	public void setMsgBody(List<A> msgBody) {
+	public void setMsgBody(List<? extends IMMsgContentDO> msgBody) {
 		this.msgBody = msgBody;
 	}
+
 }

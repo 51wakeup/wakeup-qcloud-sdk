@@ -5,7 +5,6 @@ import static com.google.common.collect.Maps.newHashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.wakeup.qcloud.domain.IMMsgContentDO;
 import com.wakeup.qcloud.response.QCloudIMResponse;
 
 /**
@@ -14,8 +13,7 @@ import com.wakeup.qcloud.response.QCloudIMResponse;
  * @since 2017年3月5日
  * @author kalman03
  */
-public class SendGroupSystemNotificationRequest<A extends IMMsgContentDO>
-		extends AbstractQCloudIMRequest<QCloudIMResponse> {
+public class SendGroupSystemNotificationRequest extends AbstractQCloudIMRequest<QCloudIMResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
 

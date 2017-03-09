@@ -15,7 +15,7 @@ import com.wakeup.qcloud.response.ImportGroupMsgResponse;
  * @since 2017年3月5日
  * @author kalman03
  */
-public class ImportGroupMsgRequest<E extends IMMsgContentDO> extends
+public class ImportGroupMsgRequest extends
 		AbstractQCloudIMRequest<ImportGroupMsgResponse> {
 
 	private static final long serialVersionUID = 9197076482321160595L;
@@ -24,7 +24,7 @@ public class ImportGroupMsgRequest<E extends IMMsgContentDO> extends
 	 */
 	private String groupId;
 
-	private List<MsgList<E>> msgList;
+	private List<MsgList<? extends IMMsgContentDO>> msgList;
 
 	public static class MsgList<S extends IMMsgContentDO> {
 		/**
@@ -102,11 +102,12 @@ public class ImportGroupMsgRequest<E extends IMMsgContentDO> extends
 		this.groupId = groupId;
 	}
 
-	public List<MsgList<E>> getMsgList() {
+	public List<MsgList<? extends IMMsgContentDO>> getMsgList() {
 		return msgList;
 	}
 
-	public void setMsgList(List<MsgList<E>> msgList) {
+	public void setMsgList(List<MsgList<? extends IMMsgContentDO>> msgList) {
 		this.msgList = msgList;
 	}
+
 }

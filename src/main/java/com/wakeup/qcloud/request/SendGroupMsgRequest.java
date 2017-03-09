@@ -18,8 +18,7 @@ import com.wakeup.qcloud.utils.RandomUtil;
  * @since 2017年3月5日
  * @author kalman03
  */
-public class SendGroupMsgRequest<A extends IMMsgContentDO> extends
-		AbstractQCloudIMRequest<QCloudIMResponse> {
+public class SendGroupMsgRequest extends AbstractQCloudIMRequest<QCloudIMResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
 
@@ -34,7 +33,7 @@ public class SendGroupMsgRequest<A extends IMMsgContentDO> extends
 	/**
 	 * 消息，必须
 	 */
-	private List<A> msgList;
+	private List<? extends IMMsgContentDO> msgList;
 	/**
 	 * 选填	离线推送信息配置，具体可参考消息格式描述。
 	 */
@@ -98,14 +97,6 @@ public class SendGroupMsgRequest<A extends IMMsgContentDO> extends
 		this.fromAccount = fromAccount;
 	}
 
-	public List<A> getMsgList() {
-		return msgList;
-	}
-
-	public void setMsgList(List<A> msgList) {
-		this.msgList = msgList;
-	}
-
 	public OfflinePushInfoDO getOfflinePushInfoDO() {
 		return offlinePushInfoDO;
 	}
@@ -128,5 +119,13 @@ public class SendGroupMsgRequest<A extends IMMsgContentDO> extends
 
 	public void setMsgPriority(String msgPriority) {
 		this.msgPriority = msgPriority;
+	}
+
+	public List<? extends IMMsgContentDO> getMsgList() {
+		return msgList;
+	}
+
+	public void setMsgList(List<? extends IMMsgContentDO> msgList) {
+		this.msgList = msgList;
 	}
 }

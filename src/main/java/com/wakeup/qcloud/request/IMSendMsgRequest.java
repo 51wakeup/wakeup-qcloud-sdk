@@ -19,8 +19,7 @@ import com.wakeup.qcloud.utils.RandomUtil;
  * @author kalman03
  * @param <T>
  */
-public class IMSendMsgRequest<A extends IMMsgContentDO> extends
-		AbstractQCloudIMRequest<QCloudIMResponse> {
+public class IMSendMsgRequest extends AbstractQCloudIMRequest<QCloudIMResponse> {
 
 	private static final long serialVersionUID = -7973614575899011644L;
 	/**
@@ -39,7 +38,7 @@ public class IMSendMsgRequest<A extends IMMsgContentDO> extends
 	/**
 	 * 消息，必须
 	 */
-	private List<A> msgList;
+	private List<? extends IMMsgContentDO> msgList;
 	/**
 	 * OfflinePushInfo是专用于离线推送配置的Json对象，允许配置该条消息是否关闭推送、推送文本描述内容、推送透传字符串等等。使用OfflinePushInfo可以方便地设置离线推送信息，无需再通过TIMCustomElem封装实现。注意：如果填写了OfflinePushInfo，那么TIMCustomElem中与离线推送有关的信息配置会被忽略。目前OfflinePushInfo仅适用于APNs推送，不适用于安卓厂商推送（小米、华为推送）。
 	 */
@@ -103,20 +102,20 @@ public class IMSendMsgRequest<A extends IMMsgContentDO> extends
 		this.fromAccount = fromAccount;
 	}
 
-	public List<A> getMsgList() {
-		return msgList;
-	}
-
-	public void setMsgList(List<A> msgList) {
-		this.msgList = msgList;
-	}
-
 	public OfflinePushInfoDO getOfflinePushInfoDO() {
 		return offlinePushInfoDO;
 	}
 
 	public void setOfflinePushInfoDO(OfflinePushInfoDO offlinePushInfoDO) {
 		this.offlinePushInfoDO = offlinePushInfoDO;
+	}
+
+	public List<? extends IMMsgContentDO> getMsgList() {
+		return msgList;
+	}
+
+	public void setMsgList(List<? extends IMMsgContentDO> msgList) {
+		this.msgList = msgList;
 	}
 
 }
