@@ -5,7 +5,7 @@
 	<groupId>com.wakeup.qcloud</groupId>
 	<artifactId>qcloud-sdk</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 
 	<name>qcloud-sdk</name>
 	<properties>
