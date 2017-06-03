@@ -89,4 +89,28 @@ public class GroupMsgGetSimpleResponse extends QCloudIMResponse {
 		}
 	}
 
+	public String getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
+	public int getIsFinished() {
+		return isFinished;
+	}
+
+	public void setIsFinished(int isFinished) {
+		this.isFinished = isFinished;
+	}
+
+	public List<RspMsg> getRspMsgList() {
+		return rspMsgList;
+	}
+
+	public void setRspMsgList(List<RspMsg> rspMsgList) {
+		this.rspMsgList = rspMsgList;
+	}
+
 }
