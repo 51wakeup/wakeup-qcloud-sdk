@@ -90,7 +90,7 @@ public class LiveMsgAvRecordCreatedDO extends LiveMsgBaseDO {
 	 * 推流url参数
 	 */
 	@JSONField(name = "stream_param")
-	private long streamParam;
+	private String streamParam;
 	/**
 	 * 录制文件id
 	 */
@@ -165,15 +165,6 @@ public class LiveMsgAvRecordCreatedDO extends LiveMsgBaseDO {
 	public void setDuration(long duration) {
 		this.duration = duration;
 	}
-
-	public long getStreamParam() {
-		return streamParam;
-	}
-
-	public void setStreamParam(long streamParam) {
-		this.streamParam = streamParam;
-	}
-
 	public String getRecordFileId() {
 		return recordFileId;
 	}
@@ -188,5 +179,13 @@ public class LiveMsgAvRecordCreatedDO extends LiveMsgBaseDO {
 
 	public void setVod2Flag(int vod2Flag) {
 		this.vod2Flag = vod2Flag;
+	}
+
+	public String getStreamParam() {
+		return streamParam;
+	}
+
+	public void setStreamParam(String streamParam) {
+		this.streamParam = streamParam;
 	}
 }
