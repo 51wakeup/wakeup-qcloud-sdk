@@ -80,7 +80,7 @@ public @ResponseBody String im_callback(HttpServletRequest request) {
 
 Java开发工程师，前端开发工程师，Android开发过程，iOS开发工程师
 
-坐标：文一西路1326号利尔达物联网科技园
+坐标：杭州市余杭区文一西路1326号利尔达物联网科技园
 
 我们期望打造一个学习的入口，如果你感兴趣，欢迎简历发送至：jingxiang@51wakeup.com
 
