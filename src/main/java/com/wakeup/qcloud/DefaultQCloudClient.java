@@ -288,11 +288,17 @@ public class DefaultQCloudClient implements QCloudClient {
 		
 		String url = MIX_STREAM_URL+"?appid="+liveConfig.getSdkAppId()+"&interface=Mix_StreamV2&t="+timestamp+"&sign="+sign;
 		String res = HttpClientUtil.post(url, JSON.toJSONString(body));
-		JSONObject jsonObject = JSON.parseObject(res);
-		MixStreamResponse response = new MixStreamResponse(jsonObject.getIntValue("code"));
-		response.setMessage(jsonObject.getString("message"));
-		response.setTimestamp(jsonObject.getLongValue("timestamp"));
-		return response;
+		try {
+			JSONObject jsonObject = JSON.parseObject(res);
+			MixStreamResponse response = new MixStreamResponse(jsonObject.getIntValue("code"));
+			response.setMessage(jsonObject.getString("message"));
+			response.setTimestamp(jsonObject.getLongValue("timestamp"));
+			return response;
+		} catch (Exception e) {
+			MixStreamResponse response = new MixStreamResponse(100);
+			response.setMessage(res);
+			return response;
+		}
 	}
 	
 	public void setImConfig(IMConfigDO imConfig) {
