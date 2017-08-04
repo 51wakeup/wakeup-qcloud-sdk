@@ -20,6 +20,10 @@ public class LiveConfigDO extends BaseDO {
 	 * sdkappid
 	 */
 	private String sdkAppId;
+	/**
+	 * 直播管理中的appid
+	 */
+	private String appid;
 
 	public String getKey() {
 		return key;
@@ -35,5 +39,13 @@ public class LiveConfigDO extends BaseDO {
 
 	public void setSdkAppId(String sdkAppId) {
 		this.sdkAppId = sdkAppId;
+	}
+
+	public String getAppid() {
+		return appid;
+	}
+
+	public void setAppid(String appid) {
+		this.appid = appid;
 	}
 }

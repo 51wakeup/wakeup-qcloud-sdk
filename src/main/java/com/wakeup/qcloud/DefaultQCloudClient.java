@@ -1,5 +1,6 @@
 package com.wakeup.qcloud;
 
+import static com.google.common.collect.Maps.newHashMap;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.CharArrayReader;
@@ -278,15 +279,22 @@ public class DefaultQCloudClient implements QCloudClient {
 		
 		MixStreamBody body = new MixStreamBody();
 		Interface _interface = body.new Interface();
-		streamDO.setAppId(liveConfig.getSdkAppId());
+		streamDO.setAppId(liveConfig.getAppid());
 		_interface.setPara(streamDO);
 		body.set_interface(_interface);
 		body.setEventId(timestamp);
 		body.setTimestamp(timestamp);
 		
-		String sign = DigestUtils.md5Hex(liveConfig.getKey()+timestamp);
+		long t = timestamp + 60;//偏移60秒
+		String sign = DigestUtils.md5Hex(liveConfig.getKey()+t);
+		Map<String, Object> params = newHashMap();
+		params.put("appid", liveConfig.getAppid());
+		params.put("interface", "Mix_Stream");
+		params.put("t", t);
+		params.put("sign", sign);
+		HttpClientUtil.get(MIX_STREAM_URL, params);//这个请求是干嘛的，我也不知道！！！
 		
-		String url = MIX_STREAM_URL+"?appid="+liveConfig.getSdkAppId()+"&interface=Mix_Stream&t="+timestamp+"&sign="+sign;
+		String url = MIX_STREAM_URL+"?appid="+liveConfig.getAppid()+"&interface=Mix_Stream&t="+t+"&sign="+sign;
 		String res = HttpClientUtil.post(url, JSON.toJSONString(body));
 		try {
 			JSONObject jsonObject = JSON.parseObject(res);
