@@ -60,7 +60,7 @@ public class MixStreamDO extends BaseDO {
 		private int imageLayer;// 输入流图层ID，必选，图层标识号，目前支持1-6。大主播填 1
 								// ;小主播按照顺序填写2、3、4、5、6
 		@JSONField(name = "input_type")
-		private Integer inputType = 0;// 混流输入源类型，可选，输入源标识，0表示输入源为流，3表示输入源为画布。
+		private Integer inputType;// 混流输入源类型，可选，输入源标识，0表示输入源为流，3表示输入源为画布。
 		@JSONField(name = "image_width")
 		private Integer imageWidth;// 混流输入源像素宽值，可选，输入画面的宽度。建议在0-3000以内。
 		@JSONField(name = "image_height")
