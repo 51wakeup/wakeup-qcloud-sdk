@@ -286,7 +286,7 @@ public class DefaultQCloudClient implements QCloudClient {
 		
 		String sign = DigestUtils.md5Hex(liveConfig.getKey()+timestamp);
 		
-		String url = MIX_STREAM_URL+"?appid="+liveConfig.getSdkAppId()+"&interface=Mix_StreamV2&t="+timestamp+"&sign="+sign;
+		String url = MIX_STREAM_URL+"?appid="+liveConfig.getSdkAppId()+"&interface=Mix_Stream&t="+timestamp+"&sign="+sign;
 		String res = HttpClientUtil.post(url, JSON.toJSONString(body));
 		try {
 			JSONObject jsonObject = JSON.parseObject(res);
