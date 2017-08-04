@@ -1,6 +1,7 @@
 package com.wakeup.qcloud.utils;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -74,6 +75,48 @@ public class HttpClientUtil {
 				httpclient.close();
 			} catch (IOException e) {
 				//ignore
+			}
+		}
+	}
+	
+	public static String post(String url, String json) {
+		if (isBlank(url)) {
+			throw new RuntimeException("request url is required.");
+		}
+
+		RequestConfig config = RequestConfig.custom().setConnectTimeout(60000).setSocketTimeout(15000).build();
+		CloseableHttpClient httpclient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+		try {
+			HttpPost httpPost = new HttpPost(url);
+			if (isNotBlank(json)) {
+				StringEntity content = new StringEntity(json,Charset.forName(CHARSET));
+				content.setContentType("application/json; charset=" + CHARSET);
+				content.setContentEncoding(CHARSET);
+				httpPost.setEntity(content);
+			}
+			CloseableHttpResponse response = httpclient.execute(httpPost);
+			// 执行get请求.
+			try {
+				int statusCode = response.getStatusLine().getStatusCode();
+				if (statusCode != 200) {
+					httpPost.abort();
+					return null;
+				}
+				HttpEntity entity = response.getEntity();
+				String rs = EntityUtils.toString(entity,CHARSET);
+				EntityUtils.consume(entity);
+				
+				return rs;
+			} finally {
+				response.close();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				httpclient.close();
+			} catch (IOException e) {
+				// ignore
 			}
 		}
 	}

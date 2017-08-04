@@ -31,6 +31,10 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.wakeup.qcloud.domain.IMConfigDO;
 import com.wakeup.qcloud.domain.LiveConfigDO;
+import com.wakeup.qcloud.domain.MixStreamBody;
+import com.wakeup.qcloud.domain.MixStreamDO;
+import com.wakeup.qcloud.domain.MixStreamResponse;
+import com.wakeup.qcloud.domain.MixStreamBody.Interface;
 import com.wakeup.qcloud.listener.AbstractIMMsgListener;
 import com.wakeup.qcloud.listener.AbstractLiveMsgListener;
 import com.wakeup.qcloud.listener.QCloudMsgListener;
@@ -44,6 +48,7 @@ import com.wakeup.qcloud.utils.RandomUtil;
  * @author kalman03
  */
 public class DefaultQCloudClient implements QCloudClient {
+	private final static String MIX_STREAM_URL = "http://fcgi.video.qcloud.com/common_access";
 	
 	private IMConfigDO imConfig;
 	private LiveConfigDO liveConfig;
@@ -266,7 +271,30 @@ public class DefaultQCloudClient implements QCloudClient {
 			throw new QCloudException(e);
 		}
 	}
-
+	
+	@Override
+	public MixStreamResponse mixStream(MixStreamDO streamDO) {
+		long timestamp = System.currentTimeMillis()/1000;
+		
+		MixStreamBody body = new MixStreamBody();
+		Interface _interface = body.new Interface();
+		streamDO.setAppId(liveConfig.getSdkAppId());
+		_interface.setPara(streamDO);
+		body.set_interface(_interface);
+		body.setEventId(timestamp);
+		body.setTimestamp(timestamp);
+		
+		String sign = DigestUtils.md5Hex(liveConfig.getKey()+timestamp);
+		
+		String url = MIX_STREAM_URL+"?appid="+liveConfig.getSdkAppId()+"&interface=Mix_StreamV2&t="+timestamp+"&sign="+sign;
+		String res = HttpClientUtil.post(url, JSON.toJSONString(body));
+		JSONObject jsonObject = JSON.parseObject(res);
+		MixStreamResponse response = new MixStreamResponse(jsonObject.getIntValue("code"));
+		response.setMessage(jsonObject.getString("message"));
+		response.setTimestamp(jsonObject.getLongValue("timestamp"));
+		return response;
+	}
+	
 	public void setImConfig(IMConfigDO imConfig) {
 		this.imConfig = imConfig;
 	}

@@ -2,6 +2,8 @@ package com.wakeup.qcloud;
 
 import java.util.Map;
 
+import com.wakeup.qcloud.domain.MixStreamDO;
+import com.wakeup.qcloud.domain.MixStreamResponse;
 import com.wakeup.qcloud.listener.QCloudMsgListener;
 import com.wakeup.qcloud.listener.QCloudMsgResponse;
 
@@ -30,6 +32,13 @@ public interface QCloudClient {
 	boolean verifyUserSig(String identifier,String sig)throws QCloudException;
 	/**
 	 * 处理腾讯云的回调消息
+	 * @see https://www.qcloud.com/document/product/267/5957
 	 */
 	QCloudMsgResponse doMsgProcess(QCloudMsgListener msgListener,String msgBody,Map<String,Object> urlParams)throws QCloudException ;
+	
+	/**
+	 * 混流or取消混流
+	 * @see https://www.qcloud.com/document/product/267/8832
+	 */
+	MixStreamResponse mixStream(MixStreamDO streamDO);
 }
