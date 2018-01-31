@@ -20,6 +20,7 @@ public class GroupCallbackSendMsgReq extends BaseDO {
 	private String operatorAccount;
 	private long random;
 	private List<IMMsgBody<? extends IMMsgContentDO>> msgBody;
+	
 
 	public String getCallbackCommand() {
 		return callbackCommand;
@@ -76,5 +77,6 @@ public class GroupCallbackSendMsgReq extends BaseDO {
 	public void setMsgBody(List<IMMsgBody<? extends IMMsgContentDO>> msgBody) {
 		this.msgBody = msgBody;
 	}
+	
 
 }

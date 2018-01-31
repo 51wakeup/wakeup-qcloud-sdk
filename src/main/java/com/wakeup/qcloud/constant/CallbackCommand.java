@@ -14,6 +14,13 @@ public class CallbackCommand {
 	 * 群内发言之后回调
 	 */
 	public final static String GroupCallbackAfterSendMsg = "Group.CallbackAfterSendMsg";
+	/**
+	 * 新成员入群之后回调
+	 */
+	public final static String GroupCallbackAfterNewMemberJoin = "Group.CallbackAfterNewMemberJoin";
 	
-	
+	/**
+	 * 群成员离开之后回调
+	 */
+	public final static String GroupCallbackAfterMemberExit = "Group.CallbackAfterMemberExit";
 }

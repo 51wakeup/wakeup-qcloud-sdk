@@ -1,6 +1,7 @@
 package com.wakeup.qcloud.listener;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,8 @@ import com.wakeup.qcloud.domain.ImageMsgContentDO;
 import com.wakeup.qcloud.domain.LocationMsgContentDO;
 import com.wakeup.qcloud.domain.SoundMsgContentDO;
 import com.wakeup.qcloud.domain.TextMsgContentDO;
+import com.wakeup.qcloud.listener.request.GroupCallbackMembersNewOrExitReq;
+import com.wakeup.qcloud.listener.request.GroupCallbackMembersNewOrExitReq.NewOrExitMember;
 import com.wakeup.qcloud.listener.request.GroupCallbackSendMsgReq;
 import com.wakeup.qcloud.listener.response.GroupCallbackBeforeSendMsgResp;
 
@@ -47,6 +50,14 @@ public abstract class AbstractIMMsgListener implements QCloudMsgListener {
 	public IMMsgResponse onGroupAfterSendMsg(GroupCallbackSendMsgReq msgReq,UrlParamDO urlParams){
 		return new IMMsgResponse();
 	}
+	
+	public IMMsgResponse onGroupAfterNewMemberJoin(GroupCallbackMembersNewOrExitReq msgReq,UrlParamDO urlParams){
+		return new IMMsgResponse();
+	}
+	
+	public IMMsgResponse onGroupAfterAfterMemberExit(GroupCallbackMembersNewOrExitReq msgReq,UrlParamDO urlParams){
+		return new IMMsgResponse();
+	}
 
 	@Override
 	public final QCloudMsgResponse doProcess(String body,Map<String, Object> urlParams, String key) {
@@ -63,12 +74,42 @@ public abstract class AbstractIMMsgListener implements QCloudMsgListener {
 		case CallbackCommand.GroupCallbackAfterSendMsg:
 			GroupCallbackSendMsgReq msgReq2 = toGroupCallbackSendMsgReq(body);
 			return onGroupAfterSendMsg(msgReq2, paramDO);
+		case CallbackCommand.GroupCallbackAfterNewMemberJoin:
+			GroupCallbackMembersNewOrExitReq msgReq3 = toGroupCallbackMembersNewOrExitReq(body);
+			return onGroupAfterNewMemberJoin(msgReq3, paramDO);
+		case CallbackCommand.GroupCallbackAfterMemberExit:
+			GroupCallbackMembersNewOrExitReq msgReq4= toGroupCallbackMembersNewOrExitReq(body);
+			return onGroupAfterAfterMemberExit(msgReq4, paramDO);
 		default:
 			break;
 		}
 		return null;
 	}
 
+	private GroupCallbackMembersNewOrExitReq toGroupCallbackMembersNewOrExitReq(String body){
+		JSONObject jsonObject = JSON.parseObject(body);
+		GroupCallbackMembersNewOrExitReq msgReq = new GroupCallbackMembersNewOrExitReq();
+		msgReq.setCallbackCommand(jsonObject.getString("CallbackCommand"));
+		msgReq.setFromAccount(jsonObject.getString("From_Account"));
+		msgReq.setGroupId(jsonObject.getString("GroupId"));
+		msgReq.setOperatorAccount(jsonObject.getString("Operator_Account"));
+		msgReq.setRandom(jsonObject.getLongValue("Random"));
+		msgReq.setType(jsonObject.getString("Type"));
+		msgReq.setExitType(jsonObject.getString("ExitType"));
+		
+		String newMemList = jsonObject.getString("NewMemberList");
+		if(isNotBlank(newMemList)){
+			List<NewOrExitMember> newMemberList = JSON.parseArray(newMemList, NewOrExitMember.class);
+			msgReq.setNewMemberList(newMemberList);
+		}
+		
+		String exitMemList = jsonObject.getString("ExitMemberList");
+		if(isNotBlank(exitMemList)){
+			List<NewOrExitMember> exitMemberList = JSON.parseArray(exitMemList, NewOrExitMember.class);
+			msgReq.setExitMemberList(exitMemberList);
+		}
+		return msgReq;
+	}
 	
 	private GroupCallbackSendMsgReq toGroupCallbackSendMsgReq(String body){
 		JSONObject jsonObject = JSON.parseObject(body);
