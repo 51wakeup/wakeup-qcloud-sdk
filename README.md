@@ -76,13 +76,13 @@ public @ResponseBody String im_callback(HttpServletRequest request) {
 
 #### 下面广告长期有效：
 
-杭州享贞教育科技有限公司，长期招聘如下技术岗位：
+杭州享贞信息科技有限公司，长期招聘如下技术岗位：
 
-Java开发工程师，前端开发工程师，Android开发过程，iOS开发工程师
+**Java开发工程师，前端开发工程师，Android开发过程，iOS开发工程师**
 
-坐标：杭州市余杭区文一西路1326号利尔达物联网科技园
+坐标：杭州市余杭区欧美金融城美国中心
 
-我们期望打造一个学习的入口，如果你感兴趣，欢迎简历发送至：jingxiang@51wakeup.com
+我们期望打造一个学习的入口，如果你感兴趣，欢迎简历发送至：jingxiang@91zhiyin.com
 
 
 
