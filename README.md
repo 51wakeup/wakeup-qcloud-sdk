@@ -91,7 +91,7 @@ public @ResponseBody String im_callback(HttpServletRequest request) {
 wakup-qcloud-sdk is released under the [Apache 2.0 license](https://github.com/51wakeup/wakeup-qcloud-sdk/blob/master/LICENSE).
 
 ```
-Copyright 2017 HangZhou XiangZhen Education & Technology Co.,Ltd.
+Copyright 2017 HangZhou XiangZhen Information & Technology Co.,Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
