@@ -53,7 +53,7 @@ public class IMSendMsgRequest extends AbstractQCloudIMRequest<QCloudIMResponse> 
 	public Map<String, Object> getTextParams() {
 		Map<String, Object> map = newHashMap();
 		map.put("SyncOtherMachine", syncOtherMachine ? 1 : 2);
-		map.put("ToAccount", toAccount);
+		map.put("To_Account", toAccount);
 		List<Map<String, Object>> msgBody = newArrayList();
 		for (IMMsgContentDO contentDO : msgList) {
 			Map<String, Object> innerMap = newHashMap();
@@ -62,10 +62,10 @@ public class IMSendMsgRequest extends AbstractQCloudIMRequest<QCloudIMResponse> 
 			msgBody.add(innerMap);
 		}
 		map.put("MsgBody", msgBody);
-		map.put("MsgRandom", RandomUtil.getRandomNumber(7));
-		map.put("MsgTimeStamp", System.nanoTime());
+		map.put("MsgRandom", RandomUtil.getRandomNumber(7,true));
+		map.put("MsgTimeStamp", System.currentTimeMillis()/1000);
 		if (isNotBlank(fromAccount)) {
-			map.put("FromAccount", fromAccount);
+			map.put("From_Account", fromAccount);
 		}
 		if(offlinePushInfoDO != null){
 			map.put("OfflinePushInfo", offlinePushInfoDO);

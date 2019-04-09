@@ -168,8 +168,8 @@ public class DefaultQCloudClient implements QCloudClient {
 				+"\"TLS.identifier\":\"" + identifier +"\","
 				+"\"TLS.appid_at_3rd\":\"" + 0 +"\","
 			    +"\"TLS.sdk_appid\":\"" + imConfig.getSdkAppId() +"\","
-				+"\"TLS.expire_after\":\"" + expire +"\","
-		        +"\"TLS.version\": \"201512300000\""
+				+"\"TLS.expire_after\":\"" + expire +"\""
+//		        +"\"TLS.version\": \"201512300000\""
 				+"}";
 				
 				String time = String.valueOf(System.currentTimeMillis()/1000);
