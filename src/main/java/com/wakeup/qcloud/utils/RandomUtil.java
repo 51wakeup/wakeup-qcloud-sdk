@@ -17,5 +17,15 @@ public class RandomUtil {
 		}
 		return new String(randBuffer);
 	}
+	
+	
+	public static Integer getRandomNumber(int length,boolean isInt) {
+		char[] randBuffer = new char[length];
+		for (int i = 0; i < randBuffer.length; i++) {
+			randBuffer[i] = numbers[new Random().nextInt(9)];
+		}
+		Integer s = Integer.valueOf(new String(randBuffer));
+		return s;
+	}
 
 }
