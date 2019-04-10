@@ -56,7 +56,7 @@ public class SendGroupMsgRequest extends AbstractQCloudIMRequest<QCloudIMRespons
 	public Map<String, Object> getTextParams() {
 		Map<String, Object> map = newHashMap();
 		map.put("GroupId", groupId);
-		map.put("MsgRandom", RandomUtil.getRandomNumber(7));
+		map.put("Random", RandomUtil.getRandomNumber(7,true));
 		map.put("MsgPriority", msgPriority);
 		List<Map<String, Object>> msgBody = newArrayList();
 		for (IMMsgContentDO contentDO : msgList) {
