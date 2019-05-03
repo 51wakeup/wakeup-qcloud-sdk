@@ -83,7 +83,7 @@ public abstract class AbstractIMMsgListener implements QCloudMsgListener {
 		default:
 			break;
 		}
-		return null;
+		throw new RuntimeException("该消息回调未做解析处理。若需处理，请于 com.wakeup.qcloud.listener.AbstractIMMsgListener 类中增加对应解析处理。");
 	}
 
 	private GroupCallbackMembersNewOrExitReq toGroupCallbackMembersNewOrExitReq(String body){
